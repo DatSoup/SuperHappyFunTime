@@ -120,7 +120,7 @@ def DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerNam
                         playerHP -= EnemyDamage
 
               
-#Use of health pot
+#Use of cosmic vein
         elif combatPhase.upper() == 'CV': 
                 if roll == 10:
                         print ("\nYou sense a deep flow of cosmic energy increasing its healing effect!")
