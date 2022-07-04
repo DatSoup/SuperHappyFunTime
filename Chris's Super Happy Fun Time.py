@@ -5,164 +5,7 @@ select a race and a class. Leading on different journeys for each path (This wil
 The first path I am building is the dragonkin HexTinker. If you are interested in playing an early version this is where you will start!
 '''
 import random
-
-#Basic combat for Dragonkin HexTinker
-def DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage):
-    #Dragon breath combat
-        if combatPhase.upper() == 'DB':  
-                if roll == 10:
-                        print ("\nThe attack from dragon breath critically strikes your foe, dealing massive damage!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 2
-                elif roll == 9:
-                        print ("\nThe dragons breath critically strikes your foe, damage increased!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1.5
-                elif roll == 8:
-                        print ("\nThe dragon breath strikes your foe dealing extra damage!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
-                elif roll == 7:
-                        print ("\nThe dragon breath struck true!")
-                        enemyHP -= playerSkills[combatPhase.upper()]            
-                elif roll == 6:
-                        print ("\nThe enemy managed to partially block the blow.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
-                elif roll == 5:
-                        print ("\nThe enemy managed to mitigate the impact of the dragon breath.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
-                elif roll == 4:
-                        print ("\nThe attack was able to land, but not without a coutner attack from the enemy!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1
-                        playerHP -= EnemyDamage * 0.5
-                elif roll == 3:
-                        print ("\nThe dragon breath barely struck, but the enemy countered with a solid blow!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.75
-                        playerHP -= EnemyDamage * 0.75
-                elif roll == 2:
-                        print ("You managed to clip your foe, but were struck in the process!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.5  
-                        playerHP -= EnemyDamage * 0.75
-                elif roll == 1:
-                        print ("\nThe enemy dodged the attack and struck with a powerful counter attack.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0
-                        playerHP -= EnemyDamage
-            
-#HexPulseGun combat
-        elif combatPhase.upper() == 'HPG':  
-                if roll == 10:
-                        print ("\nThe attack from the HexPulseGun critically strikes your foe, dealing massive damage!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 2
-                elif roll == 9:
-                        print ("\nThe HexPulse critically strikes your foe, damage increased!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1.5
-                elif roll == 8:
-                        print ("\nThe HexPulse critically strikes your foe, dealing extra damage!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
-                elif roll == 7:
-                        print ("\nThe HexPulse struck true!")
-                        enemyHP -= playerSkills[combatPhase.upper()]            
-                elif roll == 6:
-                        print ("\nThe enemy managed to partially block the pulse.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
-                elif roll == 5:
-                        print ("\nThe enemy managed to block the majority of the HexPulse.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
-                elif roll == 4:
-                        print ("\nThe Pulse was able to land, but not without a ranged coutner attack from the enemy!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1
-                        playerHP -= EnemyDamage * 0.5
-                elif roll == 3:
-                        print ("\nThe Pulse barely struck, but the enemy countered with a aimed shot!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.75
-                        playerHP -= EnemyDamage * 0.75
-                elif roll == 2:
-                        print ("\nYou managed to clip your foe, but were struck in the process!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.5   
-                        playerHP -= EnemyDamage * 0.75
-                elif roll == 1:
-                        print ("\nThe enemy dodged the attack and struck with precise ranged attack.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0
-                        playerHP -= EnemyDamage
-            
-#DragonGlassHexBlade combat
-        elif combatPhase.upper() == 'DGHB':  
-                if roll == 10:
-                        print ("\nThe attack from the DragonGlassHexBlade critically strikes your foe, dealing massive damage!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 2
-                elif roll == 9:
-                        print ("\nThe DragonGlassHexBlade strikes your foe, damage increased!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1.5
-                elif roll == 8:
-                        print ("\nThe dragon DragonGlassHexBlade critically lands upon your foe dealing extra damage!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
-                elif roll == 7:
-                        print ("\nThe DragonGlassHexBlade struck true!")
-                        enemyHP -= playerSkills[combatPhase.upper()]            
-                elif roll == 6:
-                        print ("\nThe enemy managed to partially block the blade.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
-                elif roll == 5:
-                        print ("\nThe enemy managed to mitigate the impact of the HexBlade.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
-                elif roll == 4:
-                        print ("\nThe attack was able to land, but not without a coutner attack from the enemy!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 1
-                        playerHP -= EnemyDamage * 0.5
-                elif roll == 3:
-                        print ("\nThe DragonGlassHexBlade barely struck, but the enemy countered with a solid blow!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.75
-                        playerHP -= EnemyDamage * 0.75
-                elif roll == 2:
-                        print ("\nYou managed to clip your foe, but were struck in the process!")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0.5
-                        playerHP -= EnemyDamage * 0.75
-                elif roll == 1:
-                        print ("\nThe enemy dodged the attack and struck with a powerful counter attack.")
-                        enemyHP -= playerSkills[combatPhase.upper()] * 0
-                        playerHP -= EnemyDamage
-
-              
-#Use of cosmic vein
-        elif combatPhase.upper() == 'CV': 
-                if roll == 10:
-                        print ("\nYou sense a deep flow of cosmic energy increasing its healing effect!")
-                        playerHP += playerSkills[combatPhase.upper()] * 1.5
-                elif roll == 9:
-                        print ("\nYou tap into the cosmic vein and find an increased source of healing!")
-                        playerHP += playerSkills[combatPhase.upper()] * 1.25
-                elif roll == 8:
-                        print ("\nYou tap into a cosmic vein and find it's full healing effect!")
-                        playerHP += playerSkills[combatPhase.upper()] * 1.00           
-                elif roll == 7:
-                        print ("\nYou tap into the cosmic vein finding a solid pulse of healing")
-                        playerHP += playerSkills[combatPhase.upper()] * 0.75            
-                elif roll == 6:
-                        print ("\nYou tap into a cosmic vein and sense only a mild pulse.")
-                        playerHP += playerSkills[combatPhase.upper()] * 0.5            
-                elif roll == 5:
-                        print ("\nSensing for cosmic energy you are unable to find a healing pulse")
-                        playerHP += 0
-                elif roll == 4:
-                        print ("\nThe enemy notices you tapping into the cosmic enery. Causing you to take some damage in return.")
-                        playerHP -= playerSkills[combatPhase.upper()] * 0.75
-                        playerHP -= EnemyDamage * 0.5
-                elif roll == 3:
-                        print ("\nThe enemy notices you tapping into the cosmic enery. Landing a partial blow")
-                        playerHP += playerSkills[combatPhase.upper()] * 0.75
-                        playerHP -= EnemyDamage * 0.75
-                elif roll == 2:
-                        print ("\nThe enemy strikes you while tapping into the cosmic energy ")
-                        playerHP += playerSkills[combatPhase.upper()] * 0.5
-                        playerHP -= EnemyDamage * 0.75
-                elif roll == 1:
-                        print ("\nYou sense no cosmic energy as the enemy lands a powerful strike.")
-                        playerHP += playerSkills[combatPhase.upper()] * 0
-                        playerHP -= EnemyDamage * 1.00                
-
-#Sets enemy hp to 0 as opposed to a negative value
-        if enemyHP < 0:
-                enemyHP = 0
-        print("\nThe enemy HP: ", enemyHP)
-        print("\n" + playerName + " Hp: ", playerHP)
-        return playerHP, enemyHP
+from DragonkinHextinker import *
         
 #Starting the story        
 def main():
@@ -257,7 +100,7 @@ def main():
                         input ("\nCombat is about to begin, type 'roll' to initiate: ")
                         roll = random.randint(1, 10)
                         print ('\n' + playerName + " Rolled:", roll)
-                        playerHP, enemyHP = DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
+                        playerHP, enemyHP = DragonkinHextinker.DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
                         if playerHP <= 0:
                                 print("You have died, but the God's will not allow it...yet")
                                 playerHP += 100
@@ -312,7 +155,7 @@ def main():
                 
                 while enemyHP > 0:
                         while True:
-                                combatPhase = input('\n***Select an ability (DB, HPG, DGHB): ')
+                                combatPhase = input('\n***Select an ability (DB, HPG, or DGHB): ')
                                 if combatPhase.upper() not in ('DB', 'HPG', 'DGHB'):
                                         print("\nThat ability doesn't exist, please try again.")
                                 else:
@@ -320,7 +163,7 @@ def main():
                         input ("\nCombat is about to begin, type 'roll' to initiate: ")
                         roll = random.randint(1, 10)
                         print ('\n' + playerName + " Rolled:", roll)
-                        playerHP, enemyHP = DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
+                        playerHP, enemyHP = DragonkinHextinker.DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
                         if playerHP <= 0:
                                 print("You have died, but the God's will not allow it...yet")
                                 playerHP += 100
@@ -367,7 +210,71 @@ def main():
                 print("\nGrabbing you with his talons, BarShoup soares into the air flying into the dense mist covering the sea.")
                 print("\n" + playerName + ", we will now be heading to the hidden lotus. It is our jewel which protects our lands from outsider. I was once a scout for this ship. Prepare to prove yourself to the crew before they allow you to sail upon this vessel of legends.")
                 print("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////")
+#The Hidden Lotus
                 print("\n")   
+                print("\nAfter what felt like hours of soaring through the misty clouds above the water you hear a screaching wail rapidly approaching.")
+                print("\nWithin seconds you feel a jolt as Bar'Shoup whips around to face the eminating screeching. Then, BarShoup let loose a deep bellowing tone.")
+                print("\nRythmic and strong. The sound pulsed with a friendly, yet ferocious vibraton. When Bar'Shoup was finished, the mysterious figure replied with the same melodic tone. Looking up, you notice he too was a greathawk.")
+                print("\n\"Gord'esh!\" BarShoup called out. \"Good to see you serving the Lotus honorably.\"")
+                print("\n\"BarShoup! What bring you all the way out here?\" Also, who is that with you? Gord'esh spoke dicerningly.")
+                print("\n\"Bad news from the Dragon's Nest. The HexTinker is with me. I'll explain on the Lotus, take us there.\"")
+                print("\n\"With all due respect. You know the rules of the lotus, no one is allowed onboard unless they've proven themeselves worthy.\" Gord'esh spoke sternly." )
+                print("\n\"The mark of the God's is in danger, the Drak'Shir have returned. We have been sent on behalf of the celestial dragon's. The HexTinker isn't here to joing the crew, they will fight for the right to board. I will respect the tradition, but we've no time to waste\" BarShoup spoke gravely.")
+                print("\n\"The mark is in danger? Damnation.\" cursed Gord'esh. \"Follow me.\"")
+                print("\nA few minutes later a ship appeares in the distance. With a hull formed of reflective dragon glass it cut through the water without making a sound, barely visible to the naked eye from a distance. Its mast was a haze grey, subtly shifting its colot to blend with the passing mists.")
+                print("\n\"It has been a long while.\" Bar'Shoup spoke nastolgically. \"I used to serve as a scout on this ship, before leaving I personally took Gord'esh under my wing and trained him. As a fellow druid, a scout's role fit us best onboard.")
+                print("\n\"You will have to face him in combat in order to board the ship. The hidden lotus is responsible for protecting our shores from outsiders, this is accomplished by only allowing those truly worthy to join the crew.")
+                print("\n\"Since you aren't joining the crew, you will need to merely prove your salt in combat to ensure you won't be a liability on the ship. He wont go all out, but don't get complacent. He wont be a push over")
+                print("\n\"Upon approaching the ship you see a stir upon the decks. As you get closer, you hear people calling out and cheering for the return of BarShoup.")
+                print("\n\"My friends! it's good to see you all. BarShoup exclaimed.")
+                print("\nBarShoup!\" Boomed a commanding voice. \"What brings you here, and who is this stow away in you pocession?\"")
+                print("\n\"Captain Karmada!\" BarShoup spoke with a salute. \"We were sent by the celestial dragons. The Drak'shir are back and they are after the mark of the Gods.\"")
+                print("\n\"This is " + playerName + ", as fate would have it we met right before the invasion. "+ playerName + " fought with me as we ventured through that hellscape to the Great hall.\"")
+                print("\n\"I see. Then it appears we must have a chat\" Spoke the captain calmly.")
+                print("\n\"Welcome to the hidden Lotus " +playerName + ". We will need to see what you are made of for you to spend time on this ship. Very few people ever set foot on this ship who are not crew members or captives.\" He said with a sense of caution.")
+                print("\n\"It appears you have already met Gord'esh. He will be administering the test. Gord'esh!\" He yelled sharply.")
+                print("\n\"Yes sir.\" Gord'esh replied." )
+                
+#Hidden Lotus Combat                
+                enemyHP = 200
+                EnemyDamage = 45
+                print("\nYour HP is ", playerHP)
+                print("Enemy HP is %d With a max damage output of %d" % (enemyHP, EnemyDamage))
+                while True:
+                        answer = input("\nWould you like to view your abilities?(Y/N): ")
+                        if answer.upper() == 'Y':
+                                print("\nSkill: ", playerSkills)
+                                print("\nDragon Breath: This ability is known by all dragonkin. As children of the dragons, this trait was inherited as an icon of the dragons power."
+                                      "\nThis is a mid damage ability utilized from a mid range. This allows for decent damage with a decent chance of avoiding damage.")
+                                print("\nHexPulse Gun: Creation of the HexTinkers. This weapon fires a long range projectile pulse, powered by HexEnergy."
+                                      "\nThis is a lower damage ability utilized from a long range. This allows for minor damage with a high chance of avoiding damage.")
+                                print("\nDragonGlassHexBlade is a powerful weapon created by HexTinkers. With edges forged by dragon glass, HexEnergy power the blade to increase it power."
+                                      "\nThis is a high damage ability utilizied from low range. This allows for major damage with a low chance of avoiding damage.")
+                                print("\nCosmic Vein: This ability allows you to tap into cosmic veins around you to heal while in combat."
+                                      "\nDepending on if you can find the cosmic flow through a vein (based off role), you may or may not be able to heal.")
+                                break
+                        elif answer.upper() == 'N':
+                                break
+                        else:
+                                print("Please try again")                
+                while enemyHP > 1:
+                        while True:
+                                combatPhase = input('\n***Select an ability (DB, HPG, DGHB, CV): ')
+                                if combatPhase.upper() not in ('DB', 'HPG', 'DGHB', 'CV'):
+                                        print("\nThat ability doesn't exist, please try again.")
+                                else:
+                                        break    
+                        input ("\nCombat is about to begin, type 'roll' to initiate: ")
+                        roll = random.randint(1, 10)
+                        print ('\n' + playerName + " Rolled:", roll)
+                        playerHP, enemyHP = DragonkinHextinker.DHLotusFight (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
+                        if playerHP <= 1:
+                                print("You have been defeated")
+                        elif enemyHP <= 1:
+                                print("Gord'esh has been defeated")
+                                
+                print("")
+                
                 
                 input("to be continued...")
                         
