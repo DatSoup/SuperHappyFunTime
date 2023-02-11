@@ -7,3 +7,4 @@ The source code is written in python, and the intention of this program is to be
 To clarify, the idea here is to guide the player through a story that I have created (sort of like a DM). To start, the player will select a race and a class.
 Each combination of race/class will have a different starting point in the journey. That said, this is just the start of what will be a long process of world building.
 For anyone who has any interest in trying this at the early stages, dragonkin HexTinker is the first race/class combo I am making which will be playable.
+![image](https://user-images.githubusercontent.com/100242733/218238566-2a48f4da-184e-44c6-87cb-c6a9c52d27ed.png)
