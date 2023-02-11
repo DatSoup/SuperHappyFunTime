@@ -9,115 +9,115 @@ class DragonkinHextinker ():
         self.playerName = playerName
         self.EnemyDamage = EnemyDamage
         '''
-    def DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage):
-        #Dragon breath combat
+    def DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage, x):
+        #HeatPulse combat
         if combatPhase.upper() == 'DB':  
             if roll == 10:
-                print ("\nThe attack from dragon breath critically strikes your foe, dealing massive damage!")
+                x = print ("\nThe attack from dragon breath critically strikes your foe, dealing massive damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 2
             elif roll == 9:
-                print ("\nThe dragons breath critically strikes your foe, damage increased!")
+                x = print ("\nThe dragons breath critically strikes your foe, damage increased!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.5
             elif roll == 8:
-                print ("\nThe dragon breath strikes your foe dealing extra damage!")
+                x = print ("\nThe dragon breath strikes your foe dealing extra damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
             elif roll == 7:
-                print ("\nThe dragon breath struck true!")
+                x = print ("\nThe dragon breath struck true!")
                 enemyHP -= playerSkills[combatPhase.upper()]            
             elif roll == 6:
-                print ("\nThe enemy managed to partially block the blow.")
+                x = print ("\nThe enemy managed to partially block the blow.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
             elif roll == 5:
-                print ("\nThe enemy managed to mitigate the impact of the dragon breath.")
+                x = print ("\nThe enemy managed to mitigate the impact of the dragon breath.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
             elif roll == 4:
-                print ("\nThe attack was able to land, but not without a coutner attack from the enemy!")
+                x = print ("\nThe attack was able to land, but not without a coutner attack from the enemy!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1
                 playerHP -= EnemyDamage * 0.5
             elif roll == 3:
-                print ("\nThe dragon breath barely struck, but the enemy countered with a solid blow!")
+                x = print ("\nThe dragon breath barely struck, but the enemy countered with a solid blow!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.75
             elif roll == 2:
-                print ("You managed to clip your foe, but were struck in the process!")
+                x = print ("You managed to clip your foe, but were struck in the process!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5  
                 playerHP -= EnemyDamage * 0.75
             elif roll == 1:
-                print ("\nThe enemy dodged the attack and struck with a powerful counter attack.")
+                x = print ("\nThe enemy dodged the attack and struck with a powerful counter attack.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0
                 playerHP -= EnemyDamage
     
-    #HexPulseGun combat
+    #FrostLance combat
         elif combatPhase.upper() == 'HPG':  
             if roll == 10:
-                print ("\nThe attack from the HexPulseGun critically strikes your foe, dealing massive damage!")
+                x = print ("\nThe attack from the HexPulseGun critically strikes your foe, dealing massive damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 2
             elif roll == 9:
-                print ("\nThe HexPulse critically strikes your foe, damage increased!")
+                x = print ("\nThe HexPulse critically strikes your foe, damage increased!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.5
             elif roll == 8:
-                print ("\nThe HexPulse critically strikes your foe, dealing extra damage!")
+                x = print ("\nThe HexPulse critically strikes your foe, dealing extra damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
             elif roll == 7:
-                print ("\nThe HexPulse struck true!")
+                x = print ("\nThe HexPulse struck true!")
                 enemyHP -= playerSkills[combatPhase.upper()]            
             elif roll == 6:
-                print ("\nThe enemy managed to partially block the pulse.")
+                x = print ("\nThe enemy managed to partially block the pulse.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
             elif roll == 5:
-                print ("\nThe enemy managed to block the majority of the HexPulse.")
+                x = print ("\nThe enemy managed to block the majority of the HexPulse.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
             elif roll == 4:
-                print ("\nThe Pulse was able to land, but not without a ranged coutner attack from the enemy!")
+                x = print ("\nThe Pulse was able to land, but not without a ranged coutner attack from the enemy!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1
                 playerHP -= EnemyDamage * 0.5
             elif roll == 3:
-                print ("\nThe Pulse barely struck, but the enemy countered with a aimed shot!")
+                x = print ("\nThe Pulse barely struck, but the enemy countered with a aimed shot!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.75
             elif roll == 2:
-                print ("\nYou managed to clip your foe, but were struck in the process!")
+                x = print ("\nYou managed to clip your foe, but were struck in the process!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5   
                 playerHP -= EnemyDamage * 0.75
             elif roll == 1:
-                print ("\nThe enemy dodged the attack and struck with precise ranged attack.")
+                x = print ("\nThe enemy dodged the attack and struck with precise ranged attack.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0
                 playerHP -= EnemyDamage
     
-    #DragonGlassHexBlade combat
+    #HeatFrostSword combat
         elif combatPhase.upper() == 'DGHB':  
             if roll == 10:
-                print ("\nThe attack from the DragonGlassHexBlade critically strikes your foe, dealing massive damage!")
+                x = print ("\nThe attack from the DragonGlassHexBlade critically strikes your foe, dealing massive damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 2
             elif roll == 9:
-                print ("\nThe DragonGlassHexBlade strikes your foe, damage increased!")
+                x = print ("\nThe DragonGlassHexBlade strikes your foe, damage increased!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.5
             elif roll == 8:
-                print ("\nThe dragon DragonGlassHexBlade critically lands upon your foe dealing extra damage!")
+                x = print ("\nThe dragon DragonGlassHexBlade critically lands upon your foe dealing extra damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
             elif roll == 7:
-                print ("\nThe DragonGlassHexBlade struck true!")
+                x = print ("\nThe DragonGlassHexBlade struck true!")
                 enemyHP -= playerSkills[combatPhase.upper()]            
             elif roll == 6:
-                print ("\nThe enemy managed to partially block the blade.")
+                x = print ("\nThe enemy managed to partially block the blade.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
             elif roll == 5:
-                print ("\nThe enemy managed to mitigate the impact of the HexBlade.")
+                x = print ("\nThe enemy managed to mitigate the impact of the HexBlade.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
             elif roll == 4:
-                print ("\nThe attack was able to land, but not without a coutner attack from the enemy!")
+                x = print ("\nThe attack was able to land, but not without a coutner attack from the enemy!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1
                 playerHP -= EnemyDamage * 0.5
             elif roll == 3:
-                print ("\nThe DragonGlassHexBlade barely struck, but the enemy countered with a solid blow!")
+                x = print ("\nThe DragonGlassHexBlade barely struck, but the enemy countered with a solid blow!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.75
             elif roll == 2:
-                print ("\nYou managed to clip your foe, but were struck in the process!")
+                x = print ("\nYou managed to clip your foe, but were struck in the process!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5
                 playerHP -= EnemyDamage * 0.75
             elif roll == 1:
-                print ("\nThe enemy dodged the attack and struck with a powerful counter attack.")
+                x = print ("\nThe enemy dodged the attack and struck with a powerful counter attack.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0
                 playerHP -= EnemyDamage
     
@@ -125,37 +125,37 @@ class DragonkinHextinker ():
     #Use of cosmic vein
         elif combatPhase.upper() == 'CV': 
             if roll == 10:
-                print ("\nYou sense a deep flow of cosmic energy increasing its healing effect!")
+                x = print ("\nYou sense a deep flow of cosmic energy increasing its healing effect!")
                 playerHP += playerSkills[combatPhase.upper()] * 1.5
             elif roll == 9:
-                print ("\nYou tap into the cosmic vein and find an increased source of healing!")
+                x = print ("\nYou tap into the cosmic vein and find an increased source of healing!")
                 playerHP += playerSkills[combatPhase.upper()] * 1.25
             elif roll == 8:
-                print ("\nYou tap into a cosmic vein and find it's full healing effect!")
+                x = print ("\nYou tap into a cosmic vein and find it's full healing effect!")
                 playerHP += playerSkills[combatPhase.upper()] * 1.00           
             elif roll == 7:
-                print ("\nYou tap into the cosmic vein finding a solid pulse of healing")
+                x = print ("\nYou tap into the cosmic vein finding a solid pulse of healing")
                 playerHP += playerSkills[combatPhase.upper()] * 0.75            
             elif roll == 6:
-                print ("\nYou tap into a cosmic vein and sense only a mild pulse.")
+                x = print ("\nYou tap into a cosmic vein and sense only a mild pulse.")
                 playerHP += playerSkills[combatPhase.upper()] * 0.5            
             elif roll == 5:
-                print ("\nSensing for cosmic energy you are unable to find a healing pulse")
+                x = print ("\nSensing for cosmic energy you are unable to find a healing pulse")
                 playerHP += 0
             elif roll == 4:
-                print ("\nThe enemy notices you tapping into the cosmic enery. Causing you to take some damage in return.")
+                x = print ("\nThe enemy notices you tapping into the cosmic enery. Causing you to take some damage in return.")
                 playerHP -= playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.5
             elif roll == 3:
-                print ("\nThe enemy notices you tapping into the cosmic enery. Landing a partial blow")
+                x = print ("\nThe enemy notices you tapping into the cosmic enery. Landing a partial blow")
                 playerHP += playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.75
             elif roll == 2:
-                print ("\nThe enemy strikes you while tapping into the cosmic energy ")
+                x = print ("\nThe enemy strikes you while tapping into the cosmic energy ")
                 playerHP += playerSkills[combatPhase.upper()] * 0.5
                 playerHP -= EnemyDamage * 0.75
             elif roll == 1:
-                print ("\nYou sense no cosmic energy as the enemy lands a powerful strike.")
+                x = print ("\nYou sense no cosmic energy as the enemy lands a powerful strike.")
                 playerHP += playerSkills[combatPhase.upper()] * 0
                 playerHP -= EnemyDamage * 1.00                
     
@@ -164,117 +164,118 @@ class DragonkinHextinker ():
             enemyHP = 0
         print("\nThe enemy HP: ", enemyHP)
         print("\n" + playerName + " Hp: ", playerHP)
-        return playerHP, enemyHP              
+        print(x)
+        return playerHP, enemyHP, x              
     
-    def DHLotusFight (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage): ###UPDATE this combat for uniqueness.
+    def DHLotusFight (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage, x): ###UPDATE this combat for uniqueness.
         #Dragon breath combat
         if combatPhase.upper() == 'DB':  
             if roll == 10:
-                print ("\nThe attack from dragon breath critically strikes Gord'esh, dealing massive damage!")
+                x = print ("\nThe attack from dragon breath critically strikes Gord'esh, dealing massive damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 2
             elif roll == 9:
-                print ("\nThe dragons breath critically strikes Gord'esh, damage increased!")
+                x = print ("\nThe dragons breath critically strikes Gord'esh, damage increased!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.5
             elif roll == 8:
-                print ("\nThe dragon breath strikes Gord'esh dealing extra damage!")
+                x = print ("\nThe dragon breath strikes Gord'esh dealing extra damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
             elif roll == 7:
-                print ("\nThe dragon breath struck true!")
+                x = print ("\nThe dragon breath struck true!")
                 enemyHP -= playerSkills[combatPhase.upper()]            
             elif roll == 6:
-                print ("\nGord'esh managed to partially block the blow.")
+                x = print ("\nGord'esh managed to partially block the blow.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
             elif roll == 5:
-                print ("\nGord'esh managed to mitigate the impact of the dragon breath.")
+                x = print ("\nGord'esh managed to mitigate the impact of the dragon breath.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
             elif roll == 4:
-                print ("\nThe attack was able to land, but not without a coutner attack from Gord'esh!")
+                x = print ("\nThe attack was able to land, but not without a coutner attack from Gord'esh!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1
                 playerHP -= EnemyDamage * 0.5
             elif roll == 3:
-                print ("\nThe dragon breath barely struck, but Gord'esh countered with a solid blow!")
+                x = print ("\nThe dragon breath barely struck, but Gord'esh countered with a solid blow!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.75
             elif roll == 2:
-                print ("You managed to clip Gord'esh, but were struck in the process!")
+                x = print ("You managed to clip Gord'esh, but were struck in the process!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5  
                 playerHP -= EnemyDamage * 0.75
             elif roll == 1:
-                print ("\nGord'esh dodged the attack and struck with a powerful counter attack.")
+                x = print ("\nGord'esh dodged the attack and struck with a powerful counter attack.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0
                 playerHP -= EnemyDamage
     
     #HexPulseGun combat
         elif combatPhase.upper() == 'HPG':  
             if roll == 10:
-                print ("\nThe attack from the HexPulseGun critically strikes Gord'esh, dealing massive damage!")
+                x = print ("\nThe attack from the HexPulseGun critically strikes Gord'esh, dealing massive damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 2
             elif roll == 9:
-                print ("\nThe HexPulse critically strikes Gord'esh, damage increased!")
+                x = print ("\nThe HexPulse critically strikes Gord'esh, damage increased!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.5
             elif roll == 8:
-                print ("\nThe HexPulse critically strikes Gord'esh, dealing extra damage!")
+                x = print ("\nThe HexPulse critically strikes Gord'esh, dealing extra damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
             elif roll == 7:
-                print ("\nThe HexPulse struck true!")
+                x = print ("\nThe HexPulse struck true!")
                 enemyHP -= playerSkills[combatPhase.upper()]            
             elif roll == 6:
-                print ("\nGord'esh managed to partially block the pulse.")
+                x = print ("\nGord'esh managed to partially block the pulse.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
             elif roll == 5:
-                print ("\nGord'esh managed to block the majority of the HexPulse.")
+                x = print ("\nGord'esh managed to block the majority of the HexPulse.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
             elif roll == 4:
-                print ("\nThe Pulse was able to land, but not without a ranged coutner attack from Gord'esh!")
+                x = print ("\nThe Pulse was able to land, but not without a ranged coutner attack from Gord'esh!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1
                 playerHP -= EnemyDamage * 0.5
             elif roll == 3:
-                print ("\nThe Pulse barely struck, but Gord'esh countered with an aimed shot!")
+                x = print ("\nThe Pulse barely struck, but Gord'esh countered with an aimed shot!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.75
             elif roll == 2:
-                print ("\nYou managed to clip Gord'esh, but were struck in the process!")
+                x = print ("\nYou managed to clip Gord'esh, but were struck in the process!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5   
                 playerHP -= EnemyDamage * 0.75
             elif roll == 1:
-                print ("\nGord'esh dodged the attack and struck with precise ranged attack.")
+                x = print ("\nGord'esh dodged the attack and struck with precise ranged attack.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0
                 playerHP -= EnemyDamage
     
     #DragonGlassHexBlade combat
         elif combatPhase.upper() == 'DGHB':  
             if roll == 10:
-                print ("\nThe attack from the DragonGlassHexBlade critically strikes Gord'esh, dealing massive damage!")
+                x = print ("\nThe attack from the DragonGlassHexBlade critically strikes Gord'esh, dealing massive damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 2
             elif roll == 9:
-                print ("\nThe DragonGlassHexBlade strikes Gord'esh, damage increased!")
+                x = print ("\nThe DragonGlassHexBlade strikes Gord'esh, damage increased!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.5
             elif roll == 8:
-                print ("\nThe dragon DragonGlassHexBlade critically lands upon Gord'esh dealing extra damage!")
+                x = print ("\nThe dragon DragonGlassHexBlade critically lands upon Gord'esh dealing extra damage!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1.25           
             elif roll == 7:
-                print ("\nThe DragonGlassHexBlade struck true!")
+                x = print ("\nThe DragonGlassHexBlade struck true!")
                 enemyHP -= playerSkills[combatPhase.upper()]            
             elif roll == 6:
-                print ("\nGord'esh managed to partially block the blade.")
+                x = print ("\nGord'esh managed to partially block the blade.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75            
             elif roll == 5:
-                print ("\nGord'esh managed to mitigate the impact of the HexBlade.")
+                x = print ("\nGord'esh managed to mitigate the impact of the HexBlade.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5            
             elif roll == 4:
-                print ("\nThe attack was able to land, but not without a coutner attack from Gord'esh!")
+                x = print ("\nThe attack was able to land, but not without a coutner attack from Gord'esh!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 1
                 playerHP -= EnemyDamage * 0.5
             elif roll == 3:
-                print ("\nThe DragonGlassHexBlade barely struck, but Gord'esh countered with a solid blow!")
+                x = print ("\nThe DragonGlassHexBlade barely struck, but Gord'esh countered with a solid blow!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.75
             elif roll == 2:
-                print ("\nYou managed to clip Gord'esh, but were struck in the process!")
+                x = print ("\nYou managed to clip Gord'esh, but were struck in the process!")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0.5
                 playerHP -= EnemyDamage * 0.75
             elif roll == 1:
-                print ("\nGord'esh dodged the attack and struck with a powerful counter attack.")
+                x = print ("\nGord'esh dodged the attack and struck with a powerful counter attack.")
                 enemyHP -= playerSkills[combatPhase.upper()] * 0
                 playerHP -= EnemyDamage
     
@@ -282,37 +283,37 @@ class DragonkinHextinker ():
     #Use of cosmic vein
         elif combatPhase.upper() == 'CV': 
             if roll == 10:
-                print ("\nYou sense a deep flow of cosmic energy increasing its healing effect!")
+                x = print ("\nYou sense a deep flow of cosmic energy increasing its healing effect!")
                 playerHP += playerSkills[combatPhase.upper()] * 1.5
             elif roll == 9:
-                print ("\nYou tap into the cosmic vein and find an increased source of healing!")
+                x = print ("\nYou tap into the cosmic vein and find an increased source of healing!")
                 playerHP += playerSkills[combatPhase.upper()] * 1.25
             elif roll == 8:
-                print ("\nYou tap into a cosmic vein and find it's full healing effect!")
+                x = print ("\nYou tap into a cosmic vein and find it's full healing effect!")
                 playerHP += playerSkills[combatPhase.upper()] * 1.00           
             elif roll == 7:
-                print ("\nYou tap into the cosmic vein finding a solid pulse of healing")
+                x = print ("\nYou tap into the cosmic vein finding a solid pulse of healing")
                 playerHP += playerSkills[combatPhase.upper()] * 0.75            
             elif roll == 6:
-                print ("\nYou tap into a cosmic vein and sense only a mild pulse.")
+                x = print ("\nYou tap into a cosmic vein and sense only a mild pulse.")
                 playerHP += playerSkills[combatPhase.upper()] * 0.5            
             elif roll == 5:
-                print ("\nSensing for cosmic energy you are unable to find a healing pulse")
+                x = print ("\nSensing for cosmic energy you are unable to find a healing pulse")
                 playerHP += 0
             elif roll == 4:
-                print ("\nGord'esh notices you tapping into the cosmic enery. Causing you to take some damage in return.")
+                x = print ("\nGord'esh notices you tapping into the cosmic enery. Causing you to take some damage in return.")
                 playerHP -= playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.5
             elif roll == 3:
-                print ("\nGord'esh notices you tapping into the cosmic enery. Landing a partial blow")
+                x = print ("\nGord'esh notices you tapping into the cosmic enery. Landing a partial blow")
                 playerHP += playerSkills[combatPhase.upper()] * 0.75
                 playerHP -= EnemyDamage * 0.75
             elif roll == 2:
-                print ("\nGord'esh strikes you while tapping into the cosmic energy ")
+                x = print ("\nGord'esh strikes you while tapping into the cosmic energy ")
                 playerHP += playerSkills[combatPhase.upper()] * 0.5
                 playerHP -= EnemyDamage * 0.75
             elif roll == 1:
-                print ("\nYou sense no cosmic energy as Gord'esh lands a powerful strike.")
+                x = print ("\nYou sense no cosmic energy as Gord'esh lands a powerful strike.")
                 playerHP += playerSkills[combatPhase.upper()] * 0
                 playerHP -= EnemyDamage * 1.00                
     
@@ -323,4 +324,5 @@ class DragonkinHextinker ():
             playerHP = 1
         print("\nThe enemy HP: ", enemyHP)
         print("\n" + playerName + " Hp: ", playerHP)
-        return playerHP, enemyHP            
+        print(x)
+        return playerHP, enemyHP, x            

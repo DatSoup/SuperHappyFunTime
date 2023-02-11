@@ -6,6 +6,7 @@ The first path I am building is the dragonkin HexTinker. If you are interested i
 '''
 import random
 from DragonkinHextinker import *
+from HumanMage import *
         
 #Starting the story        
 def main():
@@ -15,7 +16,7 @@ def main():
 #Race selection
         while True:
                 Race = input("Select a race: Human, Orc, elf, dragonkin : ")
-                if Race.lower() not in ('human', 'orc', 'elf', 'dragonkin'):
+                if Race.lower() not in ('human', 'orc', 'elf', 'dragonkin', 'battleZone'):
                         print("That race doesn't exist, please try again.")
                 else:
                         break
@@ -82,6 +83,7 @@ def main():
                 playerHP = 100
                 enemyHP = 25
                 EnemyDamage = 10
+                x = ''
                 playerSkills = {'DB': 20, 'HPG' : 15, 'DGHB' : 30}
                 print("\n---Now starts the combat phase, HexTinker starts with 3 skills DragonBreath (DB - racial), HexPulseGun (HPG - class), or DragonGlassHexBlade(DGHB - racial/class)---")
                 print("\n-Dragon Breath: This ability is known by all dragonkin. As children of the dragons, this trait was inherited as an icon of the dragons power."
@@ -106,7 +108,7 @@ def main():
                         input ("\nCombat is about to begin, type 'roll' to initiate: ")
                         roll = random.randint(1, 10)
                         print ('\n' + playerName + " Rolled:", roll)
-                        playerHP, enemyHP = DragonkinHextinker.DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
+                        playerHP, enemyHP, x = DragonkinHextinker.DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage, x)
                         if playerHP <= 0:
                                 print("You have died, but the God's will not allow it...yet")
                                 playerHP += 100
@@ -145,6 +147,7 @@ def main():
 #Second combat phase 
                 enemyHP = 100
                 EnemyDamage = 15
+                x = ''
                 print("\nYour HP is ", playerHP)
                 print("Enemy HP is %d With a max damage output of %d" % (enemyHP, EnemyDamage))
                 while True:
@@ -173,7 +176,7 @@ def main():
                         input ("\nCombat is about to begin, type 'roll' to initiate: ")
                         roll = random.randint(1, 10)
                         print ('\n' + playerName + " Rolled:", roll)
-                        playerHP, enemyHP = DragonkinHextinker.DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
+                        playerHP, enemyHP, x = DragonkinHextinker.DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage, x)
                         if playerHP <= 0:
                                 print("You have died, but the God's will not allow it...yet")
                                 playerHP += 100
@@ -285,7 +288,7 @@ def main():
                         input ("\nCombat is about to begin, type 'roll' to initiate: ")
                         roll = random.randint(1, 10)
                         print ('\n' + playerName + " Rolled:", roll)
-                        playerHP, enemyHP = DragonkinHextinker.DHLotusFight (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
+                        playerHP, enemyHP, x = DragonkinHextinker.DHLotusFight (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage, x)
                         if playerHP <= 1:
                                 print("\nYou have been defeated")
                         elif enemyHP <= 1:
@@ -356,7 +359,7 @@ def main():
                         input ("\nCombat is about to begin, type 'roll' to initiate: ")
                         roll = random.randint(1, 10)
                         print ('\n' + playerName + " Rolled:", roll)
-                        playerHP, enemyHP = DragonkinHextinker.DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage)
+                        playerHP, enemyHP, x = DragonkinHextinker.DHCombatBasic (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage, x)
                         if playerHP <= 0:
                                 print("You have died, but the God's will not allow it...yet")
                                 playerHP += 100
@@ -393,7 +396,7 @@ def main():
                 inventory = []
                 playerName = input ("\n***What is your your name: ")
                 print ("\n\"" + playerName + ","" hmph\"." + " exhaled the elderly mage."
-                       "\n\n\"You must be new here at the arcanum." + playerName + "Are you familiar with the purpose of our elevator designs based off the purposes of out city?\""
+                       "\n\n\"You must be new here at the arcanum. " + playerName + "Are you familiar with the purpose of our elevator designs based off the purposes of out city?\""
                        "\n\"I am one of the lead magengineers, Arduna. I'd be happy to update you on our work here.\"")
     
 #human mage story selection
@@ -430,6 +433,7 @@ def main():
                 playerHP = 100
                 enemyHP = 25
                 EnemyDamage = 10
+                EnemyType = 'Flesh'
                 playerSkills = {'FL': 15, 'HP' : 15, 'HFS' : 30}
                 print("\nNow starts the combat phase, Mages starts with 3 skills Frost Lance (FL - Utilizing frost damage), HeatPulse (HP - Utilizing arcane bursts of heat), or HeatFrostSword(HFS - Infusing a sharp blade of ice with radient heat to empower it)")
                 print("\nFrostLance: This ability utilizes magic to form a lance of frost, this trait was inherited through mage blood."
@@ -438,6 +442,68 @@ def main():
                       "\nThis is a ranged damage ability. This allows for decent damage with a decent chance of avoiding damage.")
                 print("\nHeatFrostSword is a powerful magic utilized by mages. It requires incredible skill to form a blade of ice and empower it with incredible heat energy without melting it."
                       "\nThis is a high damage ability utilizied from low range. This allows for major damage with a low chance of avoiding damage.")
+                
+                print("\nYour starting HP is ", playerHP)
+                print("Enemy HP is %d With a max damage output of %d" % (enemyHP, EnemyDamage))
+                #initiate combat
+                while enemyHP > 0:
+                        while True:
+                                combatPhase = input('\n***Select an ability (FL, HP, or HFS): ')
+                                if combatPhase.upper() not in ('FL', 'HP', 'HFS'):
+                                        print("\nThat ability doesn't exist, please try again.")
+                                else:
+                                        break    
+                        input ("\nCombat is about to begin, type 'roll' to initiate: ")
+                        roll = random.randint(1, 10)
+                        print ('\n' + playerName + " Rolled:", roll)
+                        playerHP, enemyHP = HumanMage.HMFleshCombat (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage, EnemyType)
+                        if playerHP <= 0:
+                                print("You have died, but the God's will not allow it...yet")
+                                playerHP += 100
+                                print("Forces beyond you understanding have chosen to give you life. playerHP = " + playerHP)   
+                print("\nYour enemy has been deafeated.")
+                print("\nAs you slowly walk towards the fallen figure you quickly notice mucusy flesh hanging loosly over raw muscle and bone. A dark creature you have never seen before.")
+                print("\n\"What in the high heavens is that!\" Arduna cursed.")
+                print("\n\"In all my years I have never seen such a vile creature.\" He spat.")
+                print("\n\"Stay here and watch the body " + playerName + '\"I will go and retrieve the guards. We must find out what is going on here.')
+                print('\nIn a moment of stillness you drink in the peace staring out at the sea. Following the thrill of battle a peace washes over you. Perhaps the body holds any items of value. ')
+                print("\n***Upon rummaging through the corpse, you found a strange medalion. Perhaps it holds some value")
+                inventory.append('Drak\'Shir Medallion')
+                print("Inventory: ", inventory)
+                input('(Press Enter to continue)')
+                print("////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////")   
+        elif (Race, Class) == ('battlezone', 'mage'):
+                round = 0
+                playerHP = 100
+                enemyHP = 25
+                EnemyDamage = 10
+                EnemyType = 'Flesh'
+                playerSkills = {'FL': 15, 'HP' : 15, 'HFS' : 30}
+                print("\nNow starts the combat phase, Mages starts with 3 skills Frost Lance (FL - Utilizing frost damage), HeatPulse (HP - Utilizing arcane bursts of heat), or HeatFrostSword(HFS - Infusing a sharp blade of ice with radient heat to empower it)")
+                print("\nFrostLance: This ability utilizes magic to form a lance of frost, this trait was inherited through mage blood."
+                      "\nThis is a ranged damage ability. This allows for decent damage with a decent chance of avoiding damage. It will deal more damage to enemies susceptible to cold and less to those who are cold adapted")
+                print("\nHeatPulse: Channeling arcane energy, This ability fires a pulse of pure heat energy at the opponent."
+                      "\nThis is a ranged damage ability. This allows for decent damage with a decent chance of avoiding damage.")
+                print("\nHeatFrostSword is a powerful magic utilized by mages. It requires incredible skill to form a blade of ice and empower it with incredible heat energy without melting it."
+                      "\nThis is a high damage ability utilizied from low range. This allows for major damage with a low chance of avoiding damage.")
+                
+                print("\nYour starting HP is ", playerHP)
+                print("Enemy HP is %d With a max damage output of %d" % (enemyHP, EnemyDamage))
+                #initiate combat
+                while enemyHP > 0:
+                        while True:
+                                combatPhase = input('\n***Select an ability (FL, HP, or HFS): ')
+                                if combatPhase.upper() not in ('FL', 'HP', 'HFS'):
+                                        print("\nThat ability doesn't exist, please try again.")
+                                else:
+                                        break    
+                        input ("\nCombat is about to begin, type 'roll' to initiate: ")
+                        roll = random.randint(1, 10)
+                        print ('\n' + playerName + " Rolled:", roll)
+                        playerHP, enemyHP = HumanMage.HMFleshCombat (roll, combatPhase, playerHP, enemyHP, playerSkills, playerName, EnemyDamage, EnemyType)
+                        if playerHP <= 0:
+                                print ('You are dead, you got to round ', round)
+                round +=1 
         else:
                 print("\nThis story has yet to be written, alas, you must select a different fate")
 main()
